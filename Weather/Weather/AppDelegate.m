@@ -2,11 +2,13 @@
 //  AppDelegate.m
 //  Weather
 //
-//  Created by King on 16/5/17.
+//  Created by King on 16/2/17.
 //  Copyright © 2016年 King. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import <TSMessage.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[ViewController alloc ]init];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [TSMessage setDefaultViewController:self.window.rootViewController];
     return YES;
 }
 
